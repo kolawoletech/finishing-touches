@@ -7,6 +7,7 @@ import { Subscription} from "rxjs";
 @Component({
     moduleId: module.id,
     templateUrl: 'login.component.html'
+	,styleUrls: ['login.component.less']
 })
 
 export class LoginComponent implements OnInit {

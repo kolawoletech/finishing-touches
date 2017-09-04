@@ -2,11 +2,12 @@ export const environment = {
   production: true
   ,name: 'Production'
   ,firebaseConfig: {
-		apiKey: "AIzaSyCpXnMPQsDdm3lbqG6xDtLCeMPz0tHVqmU",
-		authDomain: "test-project-77fea.firebaseapp.com",
-		databaseURL: "https://test-project-77fea.firebaseio.com",
-		storageBucket: "test-project-77fea.appspot.com",
-		messagingSenderId: "1042319786930"
+    apiKey: "AIzaSyAJqEztFRYYgp-S-WAJO20M_YNOnA_xfv8",
+    authDomain: "sopps.firebaseapp.com",
+    databaseURL: "https://sopps.firebaseio.com",
+    projectId: "firebase-sopps",
+    storageBucket: "firebase-sopps.appspot.com",
+    messagingSenderId: "630469965694"
 		/*apiKey: "YOUR_API_KEY",
 		 authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
 		 databaseURL: "https://YOUR_PROJECT_ID.firebaseio.com",
