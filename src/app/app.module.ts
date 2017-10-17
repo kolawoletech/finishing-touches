@@ -1,3 +1,4 @@
+
 // Vendor modules
 import { NgModule }      from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -6,6 +7,9 @@ import { HttpModule } from '@angular/http';
 import { AngularFireModule } from 'angularfire2';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CalendarModule,EditorModule,SharedModule} from 'primeng/primeng';
+import { BootstrapModalModule } from 'ng2-bootstrap-modal';
+import { NgTableComponent, NgTableFilteringDirective, NgTablePagingDirective, NgTableSortingDirective } from 'ng2-table/ng2-table';
+import { PaginationModule } from 'ngx-bootstrap';
 import 'hammerjs'
 
 // App Routing
@@ -22,7 +26,7 @@ import { AppComponent }  from './app.component';
 import { NavBarComponent }  from './core/nav-bar/nav-bar.component';
 
 // Global Services
-import { AlertService,AuthenticationService,Logger,UserService,UtilService } from './global/_services/index';
+import { AlertService,AuthenticationService,Logger,UserService,UtilService, ConsignmentService } from './global/_services/index';
 
 // Environment
 import { environment } from '../environments/environment';
@@ -45,12 +49,18 @@ export const PrimeModules: Array<any> = [CalendarModule,EditorModule,GlobalModul
     ,AppRouting
     ,AdminModule
     ,GlobalModule
-	  ,TestModule
+    ,TestModule
+    ,BootstrapModalModule
+    ,PaginationModule.forRoot()
   ],
   declarations: [
     AppComponent,
     CoreComponents,
-    AppRoutingComponents
+    AppRoutingComponents,
+    NgTableComponent,
+    NgTableFilteringDirective,
+    NgTablePagingDirective,
+    NgTableSortingDirective,
   ],
   
   providers: [
@@ -59,7 +69,8 @@ export const PrimeModules: Array<any> = [CalendarModule,EditorModule,GlobalModul
     AuthenticationService,
     Logger,
     UserService,
-    UtilService
+    UtilService,
+    ConsignmentService
   ],
   bootstrap: [AppComponent]
 })

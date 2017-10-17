@@ -1,65 +1,70 @@
- <div id="wrapper">
+<div id="wrapper">
 
-        <!-- Sidebar -->
-        <div id="sidebar-wrapper">
-            <ul class="sidebar-nav">
-                <li class="sidebar-brand">
-                    <a href="#">
-                        Start Bootstrap
-                    </a>
-                </li>
-                <li>
-                    <a href="#">Dashboard</a>
-                </li>
-                <li>
-                    <a href="#">Shortcuts</a>
-                </li>
-                <li>
-                    <a href="#">Overview</a>
-                </li>
-                <li>
-                    <a href="#">Events</a>
-                </li>
-                <li>
-                    <a href="#">About</a>
-                </li>
-                <li>
-                    <a href="#">Services</a>
-                </li>
-                <li>
-                    <a href="#">Contact</a>
-                </li>
-            </ul>
-        </div>
-        <!-- /#sidebar-wrapper -->
-
-        <!-- Page Content -->
-        <div id="page-content-wrapper">
-        <div class="container-fluid">
-        <h1></h1>
-           
-<form>
-      <div class="form-group">
-    <label for="invoicenumber"><strong>Invoice Number</strong></label>
-    <input type="text" class="form-control col-6" id="invoicenumber" aria-describedby="emailHelp" placeholder="Enter Invoice Number">
-  </div>
-  <div class="form-group">
-    <label for="waybill"><strong> Waybill Number</strong></label>
-    <input type="text" class="form-control col-6" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter WayBill Number">
-  </div>
-  <div class="form-group">
-    <label for="collectionrefencenumber"><strong>Collection Reference Number</strong></label>
-    <input type="text" class="form-control col-6" id="collectionrefencenumber" placeholder="Collection Reference Number">
-  </div>
-    <div class="form-group">
-    <label for="customerrefencenumber"><strong> Customer Reference Number</strong></label>
-    <input type="text" class="form-control col-6" id="customerrefencenumber" placeholder="Customer Reference Number">
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
-</div>
-        </div>
-        <!-- /#page-content-wrapper -->
-
+    <!-- Sidebar -->
+    <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <li class="sidebar-brand">
+                <a href="#">
+                    Start Bootstrap
+                </a>
+            </li>
+            <li>
+                <a href="#">Dashboard</a>
+            </li>
+            <li>
+                <a href="#">Shortcuts</a>
+            </li>
+            <li>
+                <a href="#">Overview</a>
+            </li>
+            <li>
+                <a href="#">Events</a>
+            </li>
+            <li>
+                <a href="#">About</a>
+            </li>
+            <li>
+                <a href="#">Services</a>
+            </li>
+            <li>
+                <a href="#">Contact</a>
+            </li>
+        </ul>
     </div>
-    <!-- /#wrapper -->
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-sm-10">
+                    <input *ngIf="config.filtering" placeholder="Search record by Invoice#" [ngTableFiltering]="config.filtering"
+                        class="form-control" (tableChanged)="onChangeTable(config)" />
+                </div>
+                <div class="col-sm-2">
+                    <button class="btn btn-primary" [routerLink]="['/app-add-patient']">New Consignment</button>
+                    <!-- <button class="btn btn-danger" (click)="print()">Print Page</button> -->
+                </div>
+            </div>
+            <br>
+            <div class="row-fluid">
+
+                <ng-table id="print-section" class="sortable" [config]="config" (tableChanged)="onChangeTable(config)" (cellClicked)="onCellClick($event)"
+                    [rows]="rows" [columns]="columns">
+                </ng-table>
+
+                <div class="text-center">
+                    <pagination *ngIf="config.paging" class="pagination-sm" [(ngModel)]="page" [totalItems]="length" [itemsPerPage]="itemsPerPage"
+                        [maxSize]="maxSize" [boundaryLinks]="true" [rotate]="false" (pageChanged)="onChangeTable(config, $event)"
+                        (numPages)="numPages = $event">
+                    </pagination>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <!-- /#page-content-wrapper -->
+
+</div>
+<!-- /#wrapper -->
