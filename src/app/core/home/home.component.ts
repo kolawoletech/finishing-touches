@@ -16,12 +16,13 @@ export class HomeComponent implements OnInit {
 	public length: Number = 0;
 	public rows: Array<any> = [];
 	public columns: Array<any> = [
-		{ title: 'Date Invoiced', name: 'dateInvoiced' },
-		{ title: 'Date Recived', name: 'dateReceived' },
-		{ title: 'Consolidation #', name: 'consolidationNumber' },
-		{ title: 'Consignment ID', name: 'consignmentID' },
-		{ title: 'Consignment #', name: 'consignmentNumber' },
-		{ title: 'Invoice #', name: 'invoiceNumber' },
+		{ title: 'Date Invoiced', name: 'column_1' },
+		{ title: 'Date Recived', name: 'column_2' },
+		{ title: 'Consolidation #', name: 'column_3' },
+		{ title: 'Consignment ID', name: 'column_4' },
+		{ title: 'Consignment #', name: 'ccolumn_5' },
+        { title: 'Invoice #', name: 'column_6' },
+        { title: 'Amount Excl. Vat', name: 'column_7' },
 	];
 	public consignments: Array<any>;
 	public config: any = {
@@ -46,7 +47,7 @@ export class HomeComponent implements OnInit {
 
   private loadAllConsignment() {
         this.consignmentService.getAllConsignment()
-/*             .subscribe(consignments => {
+             .subscribe(consignments => {
                 this.consignments = consignments;
                 if (this.consignments.length === 0) {
                     this.length = 0;
@@ -54,9 +55,9 @@ export class HomeComponent implements OnInit {
                     this.length = this.consignments.length;
                 }
                 this.onChangeTable(this.config);
-            }); */
+            });
     }
- /*  
+   
     // this is the whole structrure of the table that change by(sorting , filtering)
     public onChangeTable(config: any, page: any = {page:  this.page, itemsPerPage:  this.itemsPerPage}) : any {
         if (config.filtering) {
@@ -148,5 +149,5 @@ export class HomeComponent implements OnInit {
             }
             return 0;
         });
-  } */
+  } 
 }

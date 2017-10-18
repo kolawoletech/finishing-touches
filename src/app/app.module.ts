@@ -26,7 +26,7 @@ import { AppComponent }  from './app.component';
 import { NavBarComponent }  from './core/nav-bar/nav-bar.component';
 
 // Global Services
-import { AlertService,AuthenticationService,Logger,UserService,UtilService, ConsignmentService } from './global/_services/index';
+import { AlertService,AuthenticationService,Logger,UserService,UtilService, ConsignmentService, ConfigService } from './global/_services/index';
 
 // Environment
 import { environment } from '../environments/environment';
@@ -70,7 +70,8 @@ export const PrimeModules: Array<any> = [CalendarModule,EditorModule,GlobalModul
     Logger,
     UserService,
     UtilService,
-    ConsignmentService
+    ConsignmentService,
+    ConfigService
   ],
   bootstrap: [AppComponent]
 })
